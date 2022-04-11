@@ -1,0 +1,39 @@
+<%- include('header'); %>  
+
+  <div class="box" id="heading">
+    <h1>
+      <%=listtitle%>
+    </h1>
+  </div>
+
+  <div class="box">
+    <% for(var i=0; i<Itemspassed.length; i++){ %>
+      <div class="item">
+        <input type="checkbox">
+        <p>
+          <%= Itemspassed[i] %>
+        </p>
+      </div>
+      <% } %>
+
+        <form action="/" method="post">
+
+          <input type="text" name="newItem" placeholder="Add new Item" autofocus>
+
+          <button class="submit-button" type="submit" name="listvalue" value="<%= listtitle %>">+</button>
+
+        </form>
+
+        <form class="delete-entries" action="/delete" method="post" >
+
+          <button class="btn" type="submit" name="currentlist" value="<%= listtitle %>">Clear all</button>
+
+        </form>
+        <form class="delete-entries" action="/delete-checked" method="post">
+
+          <button class="btn" type="submit" name="currentlist" value="<%= listtitle %>">Remove achieved</button>
+
+        </form>
+  </div>
+
+<%- include('footer'); -%>
